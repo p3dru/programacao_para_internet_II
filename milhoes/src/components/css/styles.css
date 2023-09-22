@@ -34,10 +34,34 @@
   }
 
 .infos{
-    background-color: #777474;
+    background-color: #bbbbbb;
     border-radius: 10px;
 }
 
 .geral{
     padding: 1% 30% 1% 30%;
+}
+
+
+.bom-negocio, .meh-negocio, .ruim-negocio{
+  border: 2%;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.bom-negocio{
+  background-color: rgb(10, 175, 51);
+  color: white; 
+}
+
+.meh-negocio{
+  background-color: rgb(196, 192, 10);
+  border-radius: 10px;
+  color: white; 
+}
+
+.ruim-negocio{
+  background-color: rgb(196, 10, 10);
+  border-radius: 10px;
+  color: white; 
 }

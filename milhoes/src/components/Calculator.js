@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './css/styles.css'
+import InputMilhas from './inputs/InputMilhas';
+import InputBonus from './inputs/InputBonus';
+import InputPrecoPorMilheiro from './inputs/InputPrecoPorMilheiro';
+import InputValorDesconto from './inputs/InputValorDesconto';
+import Result from './Result';
 
 function Calculator() {
   const [milhas, setMilhas] = useState(1000);
@@ -19,78 +24,44 @@ function Calculator() {
 
   // Função para renderização condicional
   const renderizarResultado = () => {
-    const precoTotal = calcularPrecoTotal();
+    //const precoTotal = calcularPrecoTotal();
+    /*
     if (precoTotal < 15) {
-      return <p>O preço por 1000 milhas é menor que R$ 15, sendo R$ {precoTotal.toFixed(2)}.</p>;
-    } else {
       return (
-        <p>
-          O preço por 1000 milhas é: R$ {precoTotal.toFixed(2)}
-        </p>
+        
+      )
+    } else if (20 > precoTotal > 15){
+      return (
+        
+      );
+    } else if (precoTotal > 20){
+      return(
+        
       );
     }
+    */
   };
 
   return (
     <div class='geral'>
       <h2>Calculadora de Milhas</h2>
-      <div class='infos'>
-        <label>
-          Quantas milhas você deseja comprar:
-          <br/>
-          <br/>
-          <input
-            type="number"
-            value={milhas}
-            onChange={(e) => setMilhas(e.target.value)}
-          />
-        </label>
-      </div>
-      
+      <InputMilhas value={milhas} onChange={setMilhas}/>
       <br />
 
-      <div class='infos'>
-        <label>
-          Quantidade de Bonus (%):
-          <br/>
-          <br/>
-          <input
-          type="number"
-          value={valorBonus}
-          onChange={(e) => setValorBonus(e.target.value)}
-          />
-        </label>
-      </div>
-      
+      <InputBonus value={valorBonus} onChange={setValorBonus}/>
       <br />
-      <div class='infos'>
-        <label>
-          Preço atual de 1000 milhas (R$):
-          <br/>
-          <br/>
-          <input
-            type="number"
-            value={precoPorMilheiro}
-            onChange={(e) => setPrecoPorMilheiro(e.target.value)}
-          />
-        </label>
-      </div>
+
+      <InputPrecoPorMilheiro value={precoPorMilheiro} onChange={setPrecoPorMilheiro}/>
       <br/>
-      <div class='infos'>
-        <label>
-          Valor de desconto (%):
-          <br/>
-          <br/>
-          <input
-          type="number"
-          value={valorDesconto}
-          onChange={(e) => setValorDesconto(e.target.value)}
-          />
-        </label>
-      </div>
+
+      <InputValorDesconto value={valorDesconto} onChange={setValorDesconto}/>
+      <br/>
+
+      <Result precoTotal={calcularPrecoTotal()}/>
       {renderizarResultado()}
     </div>
   );
 }
+
 
 export default Calculator;
